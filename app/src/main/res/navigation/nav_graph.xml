@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.schoolapp.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.schoolapp.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_studentHomeFragment"
+            app:destination="@id/studentHomeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_teacherHomeFragment"
+            app:destination="@id/teacherHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.schoolapp.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_studentHomeFragment"
+            app:destination="@id/studentHomeFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_teacherHomeFragment"
+            app:destination="@id/teacherHomeFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentHomeFragment"
+        android:name="com.example.schoolapp.StudentHomeFragment"
+        android:label="fragment_student_home"
+        tools:layout="@layout/fragment_student_home" />
+    <fragment
+        android:id="@+id/teacherHomeFragment"
+        android:name="com.example.schoolapp.TeacherHomeFragment"
+        android:label="fragment_teacher_home"
+        tools:layout="@layout/fragment_teacher_home" />
+</navigation>
