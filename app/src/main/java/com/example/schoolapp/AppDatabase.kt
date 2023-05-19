@@ -6,10 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.schoolapp.dao.StudentDao
 import com.example.schoolapp.dao.TeacherDao
+import com.example.schoolapp.dao.UserDao
 import com.example.schoolapp.entity.Teacher
+import com.example.schoolapp.entity.User
 
 
-@Database(entities = [Teacher::class, ], version = 1)
+@Database(entities = [User::class, ], version = 1)
 abstract class AppDatabase: RoomDatabase(){
     companion object{
         var instance: AppDatabase? = null
@@ -25,5 +27,7 @@ abstract class AppDatabase: RoomDatabase(){
     }
     abstract fun getStudentDao(): StudentDao
     abstract fun getTeacherDao(): TeacherDao
+
+    abstract fun getUserDao(): UserDao
 
 }
