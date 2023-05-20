@@ -13,15 +13,15 @@ import com.example.schoolapp.entity.User
 @Dao
 interface UserDao {
 
-//    @Insert
-//    fun addUser(user: User)
-//
-////    @Query("SELECT * FROM users")
-////    fun getAllUsers():LiveData<List<User>>
-//
-//    @Delete
-//    fun deleteUser(user:User)
-//
+    @Insert
+    fun addUser(user: User)
+
+//    @Query("SELECT * FROM users")
+//    fun getAllUsers():LiveData<List<User>>
+
+    @Delete
+    fun deleteUser(user:User)
+
 //    @Query("select * FROM users" + "where id = :id")
 //    fun getUserById(id:Int):User
 //

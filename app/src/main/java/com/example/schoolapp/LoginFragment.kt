@@ -23,21 +23,24 @@ class LoginFragment : Fragment() {
         binding.signUp.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+
+
+
         binding.loginButton.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_studentHomeFragment)
-        }
 
+            var options = arrayOf("Teacher", "Student")
+            binding.spinner.adapter = ArrayAdapter<String>(requireContext(),android.R.layout.simple_list_item_1,options)
+            binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    result = options[p2]
+                }
 
-       var options = arrayOf("Teacher", "Student")
-        binding.spinner.adapter = ArrayAdapter<String>(requireContext(),android.R.layout.simple_list_item_1,options)
-        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-               result = options[p2]
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                    result = "Please Select an Option"
+                }
+
             }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                result = "Please Select an Option"
-            }
+            findNavController().navigate(R.id.action_loginFragment_to_teacherHomeFragment)
 
         }
         return binding.root

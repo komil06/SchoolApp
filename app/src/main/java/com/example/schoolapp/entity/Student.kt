@@ -5,10 +5,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity
+@Entity(tableName = "students")
 data class Student(
     @PrimaryKey(autoGenerate = true) var id:Int = 0,
     @ColumnInfo("student_name") var studentName:String,
+    @ColumnInfo("student_class") var studentClass:String,
     var login:String,
     var password:String
 )
