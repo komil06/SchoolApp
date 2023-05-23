@@ -3,13 +3,15 @@ package com.example.schoolapp.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 
-@Entity(tableName = "users")
+@Entity(tableName = "user")
 data class User(
-    @PrimaryKey(autoGenerate = true) var id:Int = 0,
-    @ColumnInfo("user_name") var userName:String,
-    var login:String,
-    var password:String,
-    var role:String
-)
+    @PrimaryKey(autoGenerate = true)
+    val userId: Int,
+    val fullName: String,
+    val login: String,
+    val password: String,
+    val role: String
+) : Serializable

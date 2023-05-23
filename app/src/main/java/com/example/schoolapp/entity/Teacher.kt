@@ -1,16 +1,37 @@
 package com.example.schoolapp.entity
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 
 
-@Entity(tableName = "teachers")
+@Entity(
+    tableName = "teacher_subject",
+    foreignKeys = [
+        ForeignKey(
+            entity = User::class,
+            parentColumns = ["userId"],
+            childColumns = ["userId"]
+        ),
+        ForeignKey(
+            entity = Subject::class,
+            parentColumns = ["subjectId"],
+            childColumns = ["subjectId"]
+        ),
+        ForeignKey(
+            entity = Group::class,
+            parentColumns = ["groupId"],
+            childColumns = ["groupId"]
+        )
+    ],
+    indices = [
+        Index("userId"),
+        Index("subjectId"),
+        Index("groupId"),
+    ]
+)
 data class Teacher(
-    @PrimaryKey(autoGenerate = true) var id:Int = 0,
-    @ColumnInfo("teacher_name") var teacherName:String,
-    @ColumnInfo("teacher_sub") var teacherSub:String,
-    @ColumnInfo("teacher_class") var teacherClass:String,
-    var login:String,
-    var password:String
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
+    val userId: Int,
+    val subjectId: Int,
+    val groupId: Int,
 )

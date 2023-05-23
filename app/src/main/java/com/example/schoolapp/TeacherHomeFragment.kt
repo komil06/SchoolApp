@@ -11,11 +11,11 @@ import android.widget.ArrayAdapter
 import com.example.schoolapp.databinding.FragmentTeacherHomeBinding
 
 
+
 class TeacherHomeFragment : Fragment() {
 
 
     lateinit var result :String
-    val list = mutableListOf<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

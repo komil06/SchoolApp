@@ -11,17 +11,22 @@ import com.example.schoolapp.entity.Teacher
 
 @Dao
 interface TeacherDao {
-//    @Insert
-//    fun addTeacher(teacher: Teacher)
-//
-//    @Delete
-//    fun deleteTeacher(teacher: Teacher)
+    @Query("SELECT * FROM teacher_subject")
+    fun getAllTeacherSubjects(): List<Teacher>
 
-//    @Query("select * FROM teachers")
-//    fun getAllTeachers():LiveData<List<Teacher>>
+    @Query("SELECT * FROM teacher_subject WHERE id = :id")
+    fun getTeacherSubjectById(id: Int): Teacher?
 
-//    @Query("select * FROM teachers" + "where id = :id")
-//    fun getTeacherById(id:Int): Teacher
+    @Query("SELECT * FROM teacher_subject WHERE userId = :userId")
+    fun getTeacherSubjectsByUserId(userId: Int): List<Teacher>
 
+    @Insert
+    fun insertTeacherSubject(teacherSubject: Teacher)
+
+    @Delete
+    fun deleteTeacherSubject(teacherSubject: Teacher)
+
+    @Query("SELECT subjectId FROM teacher_subject WHERE userId = :userId")
+    fun getSubjectIdByUserId(userId: Int): Int
 
 }
